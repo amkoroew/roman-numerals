@@ -1,0 +1,23 @@
+roman :: Int -> String
+roman 1            = "I"
+roman 5            = "V"
+roman 10           = "X"
+roman 50           = "L"
+roman 100          = "C"
+roman 500          = "D"
+roman 1000         = "M"
+roman n | n > 3000 = "Number is to big!"
+roman n | n > 1000 = roman 1000 ++ roman (n - 1000)
+roman n | n > 899  = roman 100  ++ roman (n + 100)
+roman n | n > 500  = roman 500  ++ roman (n - 500)
+roman n | n > 399  = roman 100  ++ roman (n + 100)
+roman n | n > 100  = roman 100  ++ roman (n - 100)
+roman n | n > 89   = roman 10   ++ roman (n + 10)
+roman n | n > 50   = roman 50   ++ roman (n - 50)
+roman n | n > 39   = roman 10   ++ roman (n + 10)
+roman n | n > 10   = roman 10   ++ roman (n - 10)
+roman n | n > 8    = roman 1    ++ roman (n + 1)
+roman n | n > 5    = roman 5    ++ roman (n - 5)
+roman n | n > 3    = roman 1    ++ roman (n + 1)
+roman n | n > 1    = roman 1    ++ roman (n - 1)
+roman _            = "Invalid number!"
